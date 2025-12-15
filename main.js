@@ -9,7 +9,11 @@ import * as T from "https://unpkg.com/three@0.164.0/build/three.module.js";
 // Set up the window
 /** @type {number} */ let wid = window.innerWidth;
 /** @type {number} */ let ht = window.innerHeight;
-/** @type {T.WebGLRenderer} */ let renderer = new T.WebGLRenderer();
+/** @type {T.WebGLRenderer} */ let renderer = new T.WebGLRenderer({
+    canvas: canvas,
+    antialias: true
+});
+
 /** @type {T.OrbitControls} */ //let controls = new OrbitControls(
     //new T.PerspectiveCamera().position.set(0, 5, 10),
     //renderer.domElement);
@@ -390,7 +394,7 @@ function animate() {
 
         renderer.render(scene, camera);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(window.innerWidth, window.innerHeight, false);
 
     }
     requestAnimationFrame(animate);
