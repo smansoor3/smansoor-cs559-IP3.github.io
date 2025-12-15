@@ -389,6 +389,9 @@ function animate() {
         camera.lookAt(player.position.x, player.position.y, player.position.z);
 
         renderer.render(scene, camera);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
     }
     requestAnimationFrame(animate);
 }
